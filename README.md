@@ -6,7 +6,10 @@
 2) source venv/bin/activate  #(On Windows use `venv\Scripts\activate`)
 3) pip install -r requirements.txt
 4) python manage.py migrate  #(since, I am uploading my migrations too so there is no need to run makemigrations command again.)
-5) python manage.py runserver
+5) cd react-frontend
+6) npm i -f
+7) cd ..
+8) python manage.py runserver
 
 - Commands I've used during developement: (Devlogs)
 
@@ -15,7 +18,7 @@
 3) source venv/bin/activate
 4) pip install django
 5) pip install djangorestframework
-6)django-admin startproject backend .
+6) django-admin startproject backend .
 7) cd backend
 8) django-admin startapp api
 9) cd ..
@@ -31,8 +34,14 @@
 
 // after this I have started to add the requested api in the follow up commmits.\
 
-16) pip install google-api-python-client
-17) 
+16) pip install google-api-python-client django-cors-headers
+17) npx create-react-app react-frontend
+18) cd react-frontend   (run npm start to test)
+19) npm i axios
+20) npm install -f @material-ui/core @material-ui/icons @mui/material 
+(Since, material-ui 4.0 is not yet supported for React v17. In future we can remove '-f')
+21) 
+
 
 # References
 

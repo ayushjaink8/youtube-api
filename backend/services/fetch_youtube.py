@@ -10,8 +10,8 @@ def getnewposts():
     This function would fetch videos from YouTube API.
     """                   
     current_time = datetime.now()                 
-    # Set the posts which were posted 10 minutes from current_time
-    fetch_time = current_time - timedelta(minutes=10)
+    # Set the posts which were posted 1000 minutes from current_time
+    fetch_time = current_time - timedelta(minutes=1000)
     
     # flag variable ensures the successful fetching of the videos.
     flag=False
