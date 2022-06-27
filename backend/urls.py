@@ -30,5 +30,5 @@ router.register(r'yt', views.YoutubeDataViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('refresh/', views.fetch_data_from_youtube),
 ]

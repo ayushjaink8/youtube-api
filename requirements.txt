@@ -1,2 +1,4 @@
 django
 djangorestframework
+google-api-python-client
+django_filter

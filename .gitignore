@@ -1,3 +1,5 @@
+# This git-ignore file is for django backend.
+
 # Django #
 *.log
 *.pot

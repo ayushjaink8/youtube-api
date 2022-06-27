@@ -20,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-lgxuuqkd8#3af*f5l08pc-v#hc2bz0^t&c*yrqx^1)ds_x&7qm'
+# Keeping this secret open so that reviewers need not to create a local .env file.
+SECRET_KEY = 'secret-revealed'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -103,9 +104,23 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Django REST Framework Definition
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
+
+# API Keys for fetching youtube videos via google API. 
+# Note: Keeping these keys visible for so that reviewers need not to
+# generate new keys and will be able to use this keys itself
+# to test the application.
+YOUTUBE_API_KEYS = [
+    'AIzaSyAOqFvntvQjZ7HK20kD3sOkZ_DcDYEs9iY',
+    'AIzaSyCWEbf3GYG_AKg-SUZ6QLlRsSZq2bwswZo',
+    'AIzaSyCIWRM6cur8Ts1lH3aWEAn2L8lIeDHhcY4'
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
