@@ -19,7 +19,7 @@ async function getYoutubeData(page) {
 
 async function refreshYoutubeFeeds() {
     try{
-        const data = await axios.get(base_url + '/refresh/');
+        const data = await axios.get(base_url + '/refresh');
         return data;
     } catch (err) {
         console.log(err);

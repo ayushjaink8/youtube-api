@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../Components/footer';
 import Header from '../Components/header';
+import { Alert } from '@mui/material';
 
 import Pagination from '@mui/material/Pagination';
 
@@ -21,10 +22,10 @@ function Dashboard() {
     const [Count, setCount] = useState(0);
     const [Toggle, setToggle] = useState(false);
     const [Page, setPage] = useState(1);
+    const [ShowAlert, setShowAlert] = useState(false);
 
     const func = async (page) => {
         const result = await getYoutubeData(page);
-        console.log(result.results)
         setVideos(result.results);
         setCount(result.count);
     }
@@ -36,18 +37,31 @@ function Dashboard() {
     useEffect(() => {
         refresh();
     }, [Toggle])
+    useEffect(()=>{
+        setTimeout(() => {
+            setShowAlert(false);
+         }, 2000)       
+    }, [ShowAlert])
+
+    function getToggleValue(){
+        return Toggle;
+    }
 
     const refresh = async () => {
-        while (Toggle) {
+        let knob = getToggleValue();
+        while (knob) {
             await refreshYoutubeFeeds();
             await func(Page);
             await sleep(10000);
+            setShowAlert(true);
+            knob = getToggleValue();
         }
     }
 
     const OnRefresh = async (e) => {
         await refreshYoutubeFeeds();
         await func(Page);
+        setShowAlert(true);
     }
 
     const handleChange = async (e) => {
@@ -62,6 +76,9 @@ function Dashboard() {
         <Box style={{height: '100vh', textAlign: 'left'}}>
             <Header/>
             <Box>
+                <Box>
+                    {ShowAlert ? <Alert severity="success">Content refreshed Successfully!</Alert> : <></>}
+                </Box>
                 <Box style={{margin: '3em'}}>
                     Total Youtube Data Count: {Count}
                     <Box style={{display: 'inline', marginLeft: '3em'}}>
@@ -80,7 +97,11 @@ function Dashboard() {
                         <DataTable Videos={Videos}/>
                     </Box>
                     <Box style={{margin: '2em', display: 'flex', placeContent: 'center'}}>
-                        <Pagination count={Math.floor(Count/10)} page={Page} variant="outlined" color="primary" onChange={handlePagination}/>
+                        <Pagination
+                            count={Math.ceil(Count/10)}
+                            page={Page} variant="outlined"
+                            color="primary"
+                            onChange={handlePagination}/>
                     </Box>
                 </Box>
             </Box>

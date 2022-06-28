@@ -120,7 +120,9 @@ REST_FRAMEWORK = {
 # to test the application.
 YOUTUBE_API_KEYS = [
     'AIzaSyAOqFvntvQjZ7HK20kD3sOkZ_DcDYEs9iY',
+    'AIzaSyAY1p2hfbAYWXG4uI3Rlx4av2ivLKdiIr4',
     'AIzaSyCWEbf3GYG_AKg-SUZ6QLlRsSZq2bwswZo',
+    'AIzaSyBmcgGAxp72t-FLf1RvxbWVmtXsYpPu3Zk',
     'AIzaSyCIWRM6cur8Ts1lH3aWEAn2L8lIeDHhcY4'
 ]
 
