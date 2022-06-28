@@ -8,10 +8,11 @@
 3) `pip install -r requirements.txt`
 4) `python manage.py migrate`  (Since I am uploading my migrations too, so there is no need to run `python manage.py makemigrations` command again.)
 5) `cd react-frontend`
-6) `npm i -f`
+6) `npm i -f`  (Do not run `npm audit` or `npm audit fix --force` command.)
 7) `cd ..`
 8) `python manage.py runserver`  (to run the backend server at port 8000)
 9) In seperate Terminal run: `cd react-frontend && npm start` (to start the front-end server at port 3000)
+10) Click on "Refresh" Button in the frontend UI to get the feeds for the first time.
 
 <br/><br/>
 
