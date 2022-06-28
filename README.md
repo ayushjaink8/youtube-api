@@ -1,18 +1,19 @@
-# youtube-api
+# Youtube API
 
+<br/>
 
-- Terminal Commands to run the server:
-1) `python3 -m venv venv`
+- Terminal Commands to run both the Frontend and the Backend servers:
+1) `python3 -m venv venv`  (After clonning the project, run this command in the root directory of the project)
 2) `source venv/bin/activate`  (On Windows use `venv\Scripts\activate`)
 3) `pip install -r requirements.txt`
-4) `python manage.py migrate`  (since, I am uploading my migrations too so there is no need to run makemigrations command again.)
+4) `python manage.py migrate`  (Since I am uploading my migrations too, so there is no need to run `python manage.py makemigrations` command again.)
 5) `cd react-frontend`
 6) `npm i -f`
 7) `cd ..`
 8) `python manage.py runserver`  (to run the backend server at port 8000)
-9) in new terminal run: `cd react-frontend && npm start` (to start the front-end server at port 3000)
+9) In seperate Terminal run: `cd react-frontend && npm start` (to start the front-end server at port 3000)
 
-
+<br/><br/>
 
 - Commands I've used during developement: (Devlogs)
 
